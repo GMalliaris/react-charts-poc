@@ -25,7 +25,6 @@ function App() {
       }, TIME_STEP * 1000) : undefined;
 
         return () => {
-            console.log("Cleaning up")
             if (timerId) {
                 clearTimeout(timerId);
             }
@@ -48,7 +47,6 @@ function App() {
 
   function updateData() {
     fetchLatestData().then(response => {
-      console.log(response.batch)
       const lastIndex = data.length - 1;
       const latestBatch = data[lastIndex].batch
       if (response.batch != latestBatch) {
