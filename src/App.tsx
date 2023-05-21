@@ -66,7 +66,14 @@ function App() {
     <div className="m-6">
         <div className="text-center pb-6">
           <span className="">Charts Proof of Concept</span>
-          <button type="button" onClick={() => setIsRunning(!isRunning)}>{ isRunning ? "Stop" : "Start"}</button>
+          {isRunning && <button type="button" className="ml-3 bg-red-300 px-4 py-1 rounded-md hover:bg-red-400 hover:text-white" 
+            onClick={() => setIsRunning(false)}>
+              Stop
+          </button> }
+          {!isRunning && <button type="button" className="ml-3 bg-green-300 px-4 py-1 rounded-md hover:bg-green-400 hover:text-white" 
+            onClick={() => setIsRunning(true)}>
+              Start
+          </button> }
         </div>
        {data.length > 1 && <PieChartDemo result={latestResult}/>}
        {data.length > 1 && <LineChartDemo data={data}/>}
